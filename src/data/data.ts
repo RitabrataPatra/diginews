@@ -34,17 +34,17 @@ export const navs = [
 export const scis = [
   {
     id: 1,
-    icon: 'bi-facebook',
+    icon: 'GithubIcon',
     link: '',
   },
   {
     id: 2,
-    icon: 'bi-twitter-x',
+    icon: 'LinkedinIcon',
     link: '',
   },
   {
     id: 3,
-    icon: 'bi-instagram',
+    icon: 'TwitterIcon',
     link: '',
   },
 ];
