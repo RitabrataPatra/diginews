@@ -1,9 +1,10 @@
-import { Search, X } from 'lucide-react'
+import {  X } from 'lucide-react'
 import React from 'react'
 import './SearchForm.css'
 
 const SearchForm = ({active , formOpen} : {
     active : boolean,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     formOpen : object | any
 }) => {
   return (

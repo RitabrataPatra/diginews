@@ -1,5 +1,5 @@
 'use client'
-import React , {useState} from 'react'
+import React , {useCallback, useState} from 'react'
 import "./header.css"
 import Link from 'next/link'
 import Nav from './Nav'
@@ -10,10 +10,12 @@ import { Search } from 'lucide-react'
 const Header = () => {
   const[active , setActive] = useState(false)
 
-  const handleFormOpen = (e : any) =>{
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleFormOpen = useCallback(
+    (e: React.MouseEvent<SVGSVGElement>)=>{
     e.preventDefault()
     setActive(!active)
-  }
+  },[active])
   
   return (
     <header id='header' className='header d-flex align-items-center fixed-top'>
@@ -26,7 +28,7 @@ const Header = () => {
         <Nav/>
         <div className='position-relative'>
             <Social/>
-            <Search className='js-search-open' onClick={handleFormOpen} />
+            <Search className='js-search-open ' onClick={handleFormOpen} />
             <SearchForm active={active} formOpen={handleFormOpen}/>
         </div>
           
