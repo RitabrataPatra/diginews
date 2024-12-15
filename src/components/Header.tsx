@@ -5,17 +5,23 @@ import Link from 'next/link'
 import Nav from './Nav'
 import Social from './Social'
 import SearchForm from './SearchForm'
-import { Search } from 'lucide-react'
+import { AlignJustify, Search, X } from 'lucide-react'
 // import Image from 'next/image'
 const Header = () => {
   const[active , setActive] = useState(false)
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [on , setOn] = useState(false)
   const handleFormOpen = useCallback(
     (e: React.MouseEvent<SVGSVGElement>)=>{
-    e.preventDefault()
-    setActive(!active)
-  },[active])
+      e.preventDefault()
+      setActive(!active)
+    },[active])
+    
+    const handleToggleMenu = () => {
+      setOn(!on)
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const  body : HTMLElement | any = document.querySelector('body')
+    body.classList.toggle('mobile-nav-active')
+  }
   
   return (
     <header id='header' className='header d-flex align-items-center fixed-top'>
@@ -28,7 +34,18 @@ const Header = () => {
         <Nav/>
         <div className='position-relative'>
             <Social/>
-            <Search className='js-search-open ' onClick={handleFormOpen} />
+            <Search className='js-search-open mx-2 ' onClick={handleFormOpen} />
+              {
+                on ? (<>
+                  <X className='mobile-nav-toggle' onClick={handleToggleMenu}/>
+                </>) : (
+                 <>
+                  <AlignJustify className='mobile-nav-toggle' onClick={handleToggleMenu}/>
+                 </> 
+                )
+              }
+
+
             <SearchForm active={active} formOpen={handleFormOpen}/>
         </div>
           
