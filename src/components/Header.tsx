@@ -4,9 +4,17 @@ import "./header.css"
 import Link from 'next/link'
 import Nav from './Nav'
 import Social from './Social'
+import SearchForm from './SearchForm'
+import { Search } from 'lucide-react'
 // import Image from 'next/image'
 const Header = () => {
+  const[active , setActive] = useState(false)
 
+  const handleFormOpen = (e : any) =>{
+    e.preventDefault()
+    setActive(!active)
+  }
+  
   return (
     <header id='header' className='header d-flex align-items-center fixed-top'>
       <div className='container-fluid container-xl d-flex align-items-center justify-content-between'>
@@ -18,7 +26,11 @@ const Header = () => {
         <Nav/>
         <div className='position-relative'>
             <Social/>
+            <Search className='js-search-open' onClick={handleFormOpen} />
+            <SearchForm active={active} formOpen={handleFormOpen}/>
         </div>
+          
+          
       </div>
     </header>
   )

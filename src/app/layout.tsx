@@ -2,17 +2,18 @@ import 'aos/dist/aos.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import type { Metadata } from "next";
-import { EB_Garamond} from "next/font/google";
+import { Roboto_Mono } from 'next/font/google'
 
 import Header from '@/components/Header';
 
 import "./variables.css"
 import "./globals.css";
 
-const eb_garamond = EB_Garamond({
-  variable: "--font-eb-garamond",
-  subsets: ["latin"],
-});
+export const roboto_mono = Roboto_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-roboto-mono',
+})
 
 
 export const metadata: Metadata = {
@@ -27,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${eb_garamond.variable}`}>
+      <body className={`${roboto_mono.variable}`}>
         <Header/>
         {children}
       </body>

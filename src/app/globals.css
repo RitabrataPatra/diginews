@@ -13,7 +13,7 @@
 
 body {
   color: rgba(var(--color-primary-rgb), 1);
-  font-family: var(--font-primary);
+  font-family: var(--font-roboto-mono);
 }
 
 body::-webkit-scrollbar {

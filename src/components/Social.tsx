@@ -7,7 +7,7 @@ const Social = () => {
   return (
     <>
       {scis.map((items) => (
-        <Link href={items.link} key={items.id} className="mx-2">
+        <Link href={items.link} key={items.id} className="mx-2" target="_blank">
           {
             items.icon === "TwitterIcon" ? (
               <TwitterIcon size={20} />
