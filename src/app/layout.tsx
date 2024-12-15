@@ -3,6 +3,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import type { Metadata } from "next";
 import { EB_Garamond} from "next/font/google";
+
+import Header from '@/components/Header';
+
 import "./variables.css"
 import "./globals.css";
 
@@ -25,6 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${eb_garamond.variable}`}>
+        <Header/>
         {children}
       </body>
     </html>
