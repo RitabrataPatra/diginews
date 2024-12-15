@@ -3,14 +3,15 @@ import dbConnect from "../../../../config/db";
 import PostItem from "../../../../models/PostItem";
 
 
-dbConnect();
+
 
 //GET or POST func goes here
 export async function GET() {
   try {
+    await dbConnect();
     const res = await PostItem.find().select("-__v");
     console.log(res);
-    return NextResponse.json(res, {
+    return NextResponse.json({data : res}, {
       status: 200,
     });
   } catch (error) {
@@ -29,9 +30,10 @@ export async function POST(req: Request) {
   const body = await req.json();
   console.log("Body : ",body);
   try {
+    await dbConnect();
     const res = await new PostItem({ ...body }).save();
     console.log(res);
-    return NextResponse.json(res,
+    return NextResponse.json({data : res},
       {
         headers: {
           "Content-Type": "application/json",
